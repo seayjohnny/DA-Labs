@@ -1,6 +1,7 @@
 import java.io.*;
 import java.math.BigInteger;
 import java.net.Socket;
+import java.util.concurrent.TimeUnit;
 
 public class ServerThread extends Thread{
     private Socket socket;
@@ -18,11 +19,15 @@ public class ServerThread extends Thread{
             PrintWriter writer = new PrintWriter(output, true);
 
             String[] args = reader.readLine().split(" ");
-            BigInteger exp = new BigInteger(args[0]);
+	    int exp = Integer.parseInt(args[0]);
+            BigInteger p = new BigInteger("2").pow(exp).subtract(BigInteger.ONE);
             Integer cert = Integer.parseInt(args[1]);
 
-            writer.println(exp.toString() + " with certainty " + cert + ": " + exp.isProbablePrime(cert));
+	    TimeUnit.SECONDS.sleep(5);
+
+            writer.println("2^" + exp + " with certainty " + cert + ": " + p.isProbablePrime(cert));
             socket.close();
+	    System.out.println("Connection closed");
 
         }
         catch (Exception e)
