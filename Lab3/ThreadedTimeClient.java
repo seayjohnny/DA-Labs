@@ -19,8 +19,14 @@ public class ThreadedTimeClient {
             PrintWriter writer = new PrintWriter(output, true);
 
             writer.println(args[2] + " " + args[3]);
-            response = reader.readLine();
-            System.out.println(response);
+            while(true)
+            {
+                response = reader.readLine();
+                if(!response.isEmpty()){
+                    System.out.println(response);
+                }
+            }
+
         }
         catch (Exception e) {
             System.out.println("Client Exception: " + e.getMessage());
