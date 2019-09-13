@@ -9,7 +9,7 @@ public class ThreadedTimeClient {
 
         String hostname = args[0];
         int port = Integer.parseInt(args[1]);
-        String response;
+
 
         try (Socket socket = new Socket(hostname, port)) {
             InputStream input = socket.getInputStream();
@@ -19,13 +19,12 @@ public class ThreadedTimeClient {
             PrintWriter writer = new PrintWriter(output, true);
 
             writer.println(args[2] + " " + args[3]);
-            while(true)
+            String response = reader.readLine();
+            do
             {
+                if(!response.isEmpty()) System.out.println(response);
                 response = reader.readLine();
-                if(!response.isEmpty()){
-                    System.out.println(response);
-                }
-            }
+            } while (response.isEmpty());
 
         }
         catch (Exception e) {
