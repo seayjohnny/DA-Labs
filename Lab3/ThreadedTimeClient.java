@@ -24,7 +24,7 @@ public class ThreadedTimeClient {
             {
                 if(!response.isEmpty()) System.out.println(response);
                 response = reader.readLine();
-            } while (response.isEmpty());
+            } while (response == null);
 
         }
         catch (Exception e) {
