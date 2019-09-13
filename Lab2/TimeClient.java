@@ -22,9 +22,7 @@ public class ThreadedTimeClient {
             response = reader.readLine();
             do
             {
-                if(!response.isEmpty()){
-                    System.out.println(response);
-                }
+                System.out.println(response);
                 response = reader.readLine();
             } while (response.isEmpty());
 
