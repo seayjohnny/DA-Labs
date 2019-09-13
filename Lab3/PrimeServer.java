@@ -2,7 +2,7 @@
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ThreadedTimeServer {
+public class PrimeServer {
 
     public static void main(String[] args) {
         if(args.length < 1) return;

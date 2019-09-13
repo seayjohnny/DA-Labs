@@ -3,7 +3,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class ThreadedTimeClient {
+public class PrimeClient {
 
     public static void main(String[] args) {
         if (args.length < 2) return;
